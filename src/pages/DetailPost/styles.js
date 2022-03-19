@@ -6,8 +6,11 @@ export const Container = styled.View`
 `
 
 export const Main = styled.ScrollView`
-	padding: 0 ${RFValue(26)}px;
 	margin-top: ${RFValue(46)}px;
+`
+
+export const BoxContent = styled.ScrollView`
+	padding: 0 ${RFValue(26)}px;
 `
 
 export const Title = styled.Text`
