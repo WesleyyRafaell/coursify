@@ -2,10 +2,20 @@ import styled from 'styled-components/native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
 export const Container = styled.View`
+	background-color: #ffffff;
+`
+
+export const Wrapper = styled.View`
 	flex-direction: row;
 	align-items: center;
 	padding: ${RFValue(14)}px ${RFValue(17)}px;
 `
+
+export const Border = styled.View`
+	border-bottom-width: 1px;
+	border-bottom-color: #f4f4f4;
+`
+
 export const ButtonBack = styled.TouchableOpacity`
 	margin-right: ${RFValue(17)}px;
 `
