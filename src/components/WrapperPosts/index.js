@@ -3,7 +3,7 @@ import * as S from './styles'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Post from '../Post'
 
-const WrapperPosts = ({ navigation, title }) => {
+const WrapperPosts = ({ navigation, title, posts }) => {
 	return (
 		<S.Container>
 			<S.Header>
@@ -14,11 +14,13 @@ const WrapperPosts = ({ navigation, title }) => {
 				</S.Button>
 			</S.Header>
 			<S.ContainerPosts horizontal showsHorizontalScrollIndicator={false}>
-				<Post title={title } navigation={navigation} />
-				<Post navigation={navigation} />
-				<Post navigation={navigation} />
-				<Post navigation={navigation} />
-				<Post navigation={navigation} />
+				{posts.length > 0 && (
+					<>
+						{posts.map(item => (
+							<Post key={item.id} title={item.title.rendered} navigation={navigation} />
+						))}
+					</>
+				)}
 			</S.ContainerPosts>
 		</S.Container>
 	)

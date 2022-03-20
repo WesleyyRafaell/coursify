@@ -10,3 +10,14 @@ export const getCategories = async () => {
 		console.log('error', error)
 	}
 }
+
+export const getPostByCategorieId = async (id) => {
+	try {
+		const response = await api.get(`posts?categories=${id}&per_page=5`)
+		if (response) {
+			return response
+		}
+	} catch (error) {
+		console.log('error', error)
+	}
+}

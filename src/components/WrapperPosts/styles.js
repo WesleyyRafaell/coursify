@@ -12,6 +12,7 @@ export const Header = styled.View`
 `
 
 export const Title = styled.Text`
+	max-width: ${RFValue(250)}px;
 	color: #2ab598;
 	font-size: ${RFValue(22)}px;
 	text-transform: uppercase;

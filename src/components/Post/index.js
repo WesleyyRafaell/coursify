@@ -10,7 +10,7 @@ const Post = ({ navigation, title }) => {
 				}}
 			/>
 			<S.Main>
-				<S.Title>Como criar uma landing page de alta ...</S.Title>
+				<S.Title>{title.length > 55 ? `${title.substring(0, 55)} ...` : title}</S.Title>
 				<S.Text>
 					Uma landing page de alta conversão é o que todo mundo que vende online
 					precisa ter para otimizar ...

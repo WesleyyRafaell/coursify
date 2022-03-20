@@ -3,11 +3,11 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import WrapperPosts from '../../components/WrapperPosts'
 import * as S from './styles'
-import { getCategories } from '../../services/blog'
+import { getCategories, getPostByCategorieId } from '../../services/blog'
 import Loading from '../../components/Loading'
 
 const Dashboard = ({ navigation }) => {
-	const [categories, setCategories] = useState([])
+	const [posts, setPosts] = useState([])
 	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
@@ -16,7 +16,17 @@ const Dashboard = ({ navigation }) => {
 			const response = await getCategories()
 			if(response.data) {
 				// console.log(`responsinn`, response)
-				setCategories(response.data)
+				const arrayPosts = await Promise.all(response.data.map(async item => {
+					const result = await getPostByCategorieId(item.id)
+					const object = {
+						categorieId: item.id,
+						nameCategorie: item.name,
+						posts: result
+					}
+					return object
+				}))
+
+				setPosts(arrayPosts)
 				setLoading(false)
 			}
 		}
@@ -33,14 +43,13 @@ const Dashboard = ({ navigation }) => {
 				) : (
 					<S.Main showsVerticalScrollIndicator={false}>
 						<S.ContainerPosts>
-							{categories.length > 0 && (
+							{posts.length > 0 && (
 								<>
-									{categories.map(item => (
-										<WrapperPosts key={item.id} title={item.name} navigation={navigation} />
+									{posts.map(item => (
+										<WrapperPosts key={item.categorieId} title={item.nameCategorie} posts={item.posts.data} navigation={navigation} />
 									))}
 								</>
 							)}
-							<WrapperPosts navigation={navigation} />
 						</S.ContainerPosts>
 						<Footer />
 					</S.Main>
