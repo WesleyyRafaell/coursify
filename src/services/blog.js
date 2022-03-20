@@ -21,3 +21,15 @@ export const getPostByCategorieId = async (id) => {
 		console.log('error', error)
 	}
 }
+
+export const getPostById = async (id) => {
+	try {
+		const response = await api.get(`posts/${id}`)
+		if (response) {
+			return response
+		}
+	} catch (error) {
+		console.log('error', error)
+	}
+}
+

@@ -17,7 +17,7 @@ const WrapperPosts = ({ navigation, title, posts }) => {
 				{posts.length > 0 && (
 					<>
 						{posts.map(item => (
-							<Post key={item.id} title={item.title.rendered} navigation={navigation} />
+							<Post key={item.id} postId={item.id} title={item.title.rendered} navigation={navigation} />
 						))}
 					</>
 				)}

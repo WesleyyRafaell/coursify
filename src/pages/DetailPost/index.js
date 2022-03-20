@@ -1,40 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Loading from '../../components/Loading'
+import { getPostById } from '../../services/blog'
+import RenderHtml from 'react-native-render-html';
+import { useWindowDimensions } from 'react-native';
 
-const DetailPost = ({ navigation }) => {
+const DetailPost = ({ route, navigation }) => {
+	const { id } = route.params;
+	const { width } = useWindowDimensions();
+	const [loading, setLoading] = useState(false)
+	const [post, setPost] = useState({title: '', content: ''})
+
+
+	useEffect(() => {
+		const getData = async () => {
+			setLoading(true)
+			const result = await getPostById(id)
+			if(result){
+				setPost({title: result.data.title.rendered, content: result.data.content.rendered})
+				setLoading(false)
+			}
+		}
+
+		getData()
+	}, [])
+
+	const source = {
+		html: post.content
+	};
+
 	return (
 		<S.Container>
 			<Header back navigation={navigation} />
-			<S.Main>
-				<S.BoxContent>
-					<S.Title>
-						Como criar uma landing page de alta conversão para o seu curso
-						online
-					</S.Title>
-					<S.Text>
-						Uma landing page de alta conversão é o que todo mundo que vende
-						online precisa ter para otimizar resultados. No mercado competitivo
-						de hoje em dia, é justo dizer que quem tem a melhor página de venda
-						sai na frente. Uma landing page de alta conversão é o que todo mundo
-						que vende online precisa ter para otimizar resultados. No mercado
-						competitivo de hoje em dia, é justo dizer que quem tem a melhor
-						página de venda sai na frente. Uma landing page de alta conversão é
-						o que todo mundo que vende online precisa ter para otimizar
-						resultados. No mercado competitivo de hoje em dia, é justo dizer que
-						quem tem a melhor página de venda sai na frente. Uma landing page de
-						alta conversão é o que todo mundo que vende online precisa ter para
-						otimizar resultados. No mercado competitivo de hoje em dia, é justo
-						dizer que quem tem a melhor página de venda sai na frente. Uma
-						landing page de alta conversão é o que todo mundo que vende online
-						precisa ter para otimizar resultados. No mercado competitivo de hoje
-						em dia, é justo dizer que quem tem a melhor página de venda sai na
-						frente.
-					</S.Text>
-				</S.BoxContent>
-				<Footer />
-			</S.Main>
+			{loading ? (
+				<Loading />
+			) : (
+				<S.Main>
+					<S.BoxContent>
+						<S.Title>
+							{post.title}
+						</S.Title>
+						<RenderHtml
+							contentWidth={width}
+							source={source}
+						/>
+					</S.BoxContent>
+					<Footer />
+				</S.Main>
+			)}
 		</S.Container>
 	)
 }

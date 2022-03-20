@@ -1,9 +1,9 @@
 import React from 'react'
 import * as S from './styles'
 
-const Post = ({ navigation, title }) => {
+const Post = ({ navigation, postId, title }) => {
 	return (
-		<S.Container onPress={() => navigation.navigate('DetailPost')}>
+		<S.Container onPress={() => navigation.navigate('DetailPost', {id: postId})}>
 			<S.Image
 				source={{
 					uri: 'https://media.discordapp.net/attachments/855429663677087805/955068683523354665/landing-page-blog-1.jpg'
