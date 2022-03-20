@@ -13,7 +13,7 @@ function Routes() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator
-				initialRouteName="DetailPost"
+				initialRouteName="Dashboard"
 				screenOptions={{
 					headerShown: false
 				}}
