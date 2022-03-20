@@ -3,10 +3,10 @@ import * as S from './styles'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
-const DetailPost = () => {
+const DetailPost = ({ navigation }) => {
 	return (
 		<S.Container>
-			<Header back />
+			<Header back navigation={navigation} />
 			<S.Main>
 				<S.BoxContent>
 					<S.Title>

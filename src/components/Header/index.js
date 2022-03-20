@@ -6,12 +6,12 @@ import * as S from './styles'
 
 import logoImage from '../../assets/images/logo.png'
 
-const Header = ({ back }) => {
+const Header = ({ back, navigation }) => {
 	return (
 		<S.Container>
 			<S.Wrapper>
 				{back ? (
-					<S.ButtonBack>
+					<S.ButtonBack onPress={() => navigation.goBack()}>
 						<Icon name="arrow-back-outline" size={25} color="#000" />
 					</S.ButtonBack>
 				) : (
