@@ -3,7 +3,7 @@ import { RFValue } from 'react-native-responsive-fontsize'
 
 export const Container = styled.View`
 	flex: 1;
-	background-color: #ffffff;
+	background-color: ${({theme}) => theme.colors.white};
 `
 
 export const Main = styled.ScrollView`
@@ -15,13 +15,8 @@ export const BoxContent = styled.ScrollView`
 `
 
 export const Title = styled.Text`
-	color: #2ab598;
+	color: ${({theme}) => theme.colors.lightGreen};
 	font-size: ${RFValue(24)}px;
 	font-weight: bold;
 	line-height: ${RFValue(34)}px;
-`
-
-export const Text = styled.Text`
-	margin-top: ${RFValue(25)}px;
-	line-height: ${RFValue(26)}px;
 `

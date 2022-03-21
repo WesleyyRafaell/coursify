@@ -29,7 +29,7 @@ export const ContainerContent = styled.View`
 `
 
 export const Title = styled.Text`
-	color: #2ab598;
+	color: ${({theme}) => theme.colors.lightGreen};
 	font-size: ${RFValue(17)}px;
 	font-weight: bold;
 	margin-top: ${RFValue(15)}px;
@@ -38,14 +38,14 @@ export const Title = styled.Text`
 `
 
 export const Text = styled.Text`
-	color: #868686;
+	color: ${({theme}) => theme.colors.gray};
 	font-size: ${RFValue(15)}px;
 `
 
 export const Button = styled.TouchableOpacity``
 
 export const TextButton = styled.Text`
-	color: #fda506;
+	color: ${({theme}) => theme.colors.orange};
 	font-size: ${RFValue(16)}px;
 	font-weight: bold;
 	margin-top: ${RFValue(15)}px;
