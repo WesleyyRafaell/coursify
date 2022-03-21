@@ -20,8 +20,12 @@ export const Main = styled.View`
 	padding: 0 ${RFValue(10)}px ${RFValue(35)}px ${RFValue(10)}px;
 `
 
+export const ContainerImage = styled.View`
+	padding-top: ${RFValue(10)}px;
+`
+
 export const ContainerContent = styled.View`
-	height: 100px;
+	height: ${RFValue(110)}px;
 `
 
 export const Title = styled.Text`

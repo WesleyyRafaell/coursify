@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { ActivityIndicator } from "react-native";
 import * as S from './styles'
 import { useWindowDimensions } from 'react-native';
 import RenderHtml from 'react-native-render-html';
+import { getMediaPost } from '../../services/blog';
 
-const HZ_MARGIN = 10;
-
-const Post = ({ navigation, postId, title, content }) => {
+const Post = ({ navigation, postId, mediaId, title, content }) => {
+	const [image, setImage] = useState('')
+	const [loading, setLoading] = useState(true)
 	const { width } = useWindowDimensions();
+
+	useEffect(() => {
+		const getData = async () => {
+			setLoading(true)
+			const result = await getMediaPost(mediaId)
+			if(result) {
+				setImage(result.data.guid.rendered)
+				setLoading(false)
+			}
+		}
+
+		getData()
+	}, [])
 
 	const source = {
 		html: content
@@ -14,11 +29,17 @@ const Post = ({ navigation, postId, title, content }) => {
 
 	return (
 		<S.Container>
-			<S.Image
-				source={{
-					uri: 'https://media.discordapp.net/attachments/855429663677087805/955068683523354665/landing-page-blog-1.jpg'
-				}}
-			/>
+			{loading ? (
+				<S.ContainerImage>
+					<ActivityIndicator size="large" color="#3CC6AA" />
+				</S.ContainerImage>
+			) : (
+				<S.Image
+					source={{
+						uri: image
+					}}
+				/>
+			)}
 			<S.Main>
 				<S.Title>{title.length > 55 ? `${title.substring(0, 55)} ...` : title}</S.Title>
 				<S.ContainerContent>

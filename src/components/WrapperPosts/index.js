@@ -20,6 +20,7 @@ const WrapperPosts = ({ navigation, title, posts }) => {
 							<Post
 								key={item.id}
 								postId={item.id}
+								mediaId={item.featured_media}
 								title={item.title.rendered}
 								content={item.excerpt.rendered}
 								navigation={navigation}

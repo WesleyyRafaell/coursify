@@ -14,6 +14,7 @@ export const getCategories = async () => {
 export const getPostByCategorieId = async (id) => {
 	try {
 		const response = await api.get(`posts?categories=${id}&per_page=5`)
+
 		if (response) {
 			return response
 		}
@@ -25,6 +26,17 @@ export const getPostByCategorieId = async (id) => {
 export const getPostById = async (id) => {
 	try {
 		const response = await api.get(`posts/${id}`)
+		if (response) {
+			return response
+		}
+	} catch (error) {
+		console.log('error', error)
+	}
+}
+
+export const getMediaPost = async (id) => {
+	try {
+		const response = await api.get(`media/${id}`)
 		if (response) {
 			return response
 		}
