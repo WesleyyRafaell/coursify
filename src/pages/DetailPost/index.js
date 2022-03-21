@@ -27,6 +27,7 @@ const DetailPost = ({ route, navigation }) => {
 		getData()
 	}, [])
 
+	console.log(`post.content`, post.content.length)
 	const source = {
 		html: post.content
 	};

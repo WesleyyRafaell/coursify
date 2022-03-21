@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled.View`
 	overflow: hidden;
 	width: ${RFValue(235)}px;
 	border: 1px solid #0000001f;
@@ -18,6 +18,10 @@ export const Image = styled.Image`
 
 export const Main = styled.View`
 	padding: 0 ${RFValue(10)}px ${RFValue(35)}px ${RFValue(10)}px;
+`
+
+export const ContainerContent = styled.View`
+	height: 100px;
 `
 
 export const Title = styled.Text`
