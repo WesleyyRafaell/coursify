@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
 export const Container = styled.View`
-	background-color: ${({theme}) => theme.colors.green};
+	background-color: ${({ theme }) => theme.colors.green};
 	height: ${RFValue(310)}px;
 	margin-top: ${RFValue(71)}px;
 	padding-top: ${RFValue(19)}px;
@@ -14,7 +14,7 @@ export const LogoFooter = styled.Image`
 `
 
 export const Text = styled.Text`
-	color: ${({theme}) => theme.colors.white};
+	color: ${({ theme }) => theme.colors.white};
 	font-size: ${RFValue(12)}px;
 	width: ${RFValue(290)}px;
 	text-align: center;
@@ -26,5 +26,5 @@ export const Button = styled.TouchableOpacity`
 	align-items: center;
 	border-radius: ${RFValue(60)}px;
 	margin-top: ${RFValue(28)}px;
-	background-color: ${({theme}) => theme.colors.lightOrange};
+	background-color: ${({ theme }) => theme.colors.lightOrange};
 `

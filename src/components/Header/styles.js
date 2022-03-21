@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
 export const Container = styled.View`
-	background-color: ${({theme}) => theme.colors.white};
+	background-color: ${({ theme }) => theme.colors.white};
 `
 
 export const Wrapper = styled.View`
@@ -29,7 +29,7 @@ export const Logo = styled.Image`
 `
 
 export const ButtonMenu = styled.TouchableOpacity`
-	background-color: ${({theme}) => theme.colors.primary};
+	background-color: ${({ theme }) => theme.colors.primary};
 	width: ${RFValue(37)}px;
 	height: ${RFValue(37)}px;
 	border-radius: ${RFValue(37)}px;

@@ -13,7 +13,7 @@ export const Header = styled.View`
 
 export const Title = styled.Text`
 	max-width: ${RFValue(250)}px;
-	color: ${({theme}) => theme.colors.primary};
+	color: ${({ theme }) => theme.colors.primary};
 	font-size: ${RFValue(22)}px;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -27,7 +27,7 @@ export const Button = styled.TouchableOpacity`
 export const TextButton = styled.Text`
 	font-size: ${RFValue(17)}px;
 	text-transform: uppercase;
-	color: ${({theme}) => theme.colors.black};
+	color: ${({ theme }) => theme.colors.black};
 	margin-right: ${RFValue(10)}px;
 `
 
