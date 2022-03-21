@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import * as S from './styles'
+import { useWindowDimensions } from 'react-native';
+import RenderHtml from 'react-native-render-html';
+
+import { getPostById } from '../../services/blog'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Loading from '../../components/Loading'
-import { getPostById } from '../../services/blog'
-import RenderHtml from 'react-native-render-html';
-import { useWindowDimensions } from 'react-native';
+import * as S from './styles'
 
 const DetailPost = ({ route, navigation }) => {
 	const { id } = route.params;

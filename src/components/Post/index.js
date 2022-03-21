@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { ActivityIndicator } from "react-native";
-import * as S from './styles'
-import { useWindowDimensions } from 'react-native';
+import { ActivityIndicator, useWindowDimensions } from "react-native";
 import RenderHtml from 'react-native-render-html';
+
 import { getMediaPost } from '../../services/blog';
+import * as S from './styles'
 
 const Post = ({ navigation, postId, mediaId, title, content }) => {
 	const [image, setImage] = useState('')

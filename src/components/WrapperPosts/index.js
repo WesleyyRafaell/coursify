@@ -1,7 +1,8 @@
 import React from 'react'
-import * as S from './styles'
 import Icon from 'react-native-vector-icons/Ionicons'
+
 import Post from '../Post'
+import * as S from './styles'
 
 const WrapperPosts = ({ navigation, title, posts }) => {
 	return (

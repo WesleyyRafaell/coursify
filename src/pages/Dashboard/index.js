@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
+
+import { getCategories, getPostByCategorieId } from '../../services/blog'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import WrapperPosts from '../../components/WrapperPosts'
-import * as S from './styles'
-import { getCategories, getPostByCategorieId } from '../../services/blog'
 import Loading from '../../components/Loading'
+import * as S from './styles'
 
 const Dashboard = ({ navigation }) => {
 	const [posts, setPosts] = useState([])
@@ -15,15 +16,14 @@ const Dashboard = ({ navigation }) => {
 			setLoading(true)
 			const response = await getCategories()
 			if(response.data) {
-				// console.log(`responsinn`, response)
 				const arrayPosts = await Promise.all(response.data.map(async item => {
-					const result = await getPostByCategorieId(item.id)
-					const object = {
+					const posts = await getPostByCategorieId(item.id)
+
+					return {
 						categorieId: item.id,
 						nameCategorie: item.name,
-						posts: result
+						posts
 					}
-					return object
 				}))
 
 				setPosts(arrayPosts)

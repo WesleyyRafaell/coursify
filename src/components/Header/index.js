@@ -2,8 +2,8 @@ import React from 'react'
 import { Text, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import DropShadow from 'react-native-drop-shadow'
-import * as S from './styles'
 
+import * as S from './styles'
 import logoImage from '../../assets/images/logo.png'
 
 const Header = ({ back, navigation }) => {
